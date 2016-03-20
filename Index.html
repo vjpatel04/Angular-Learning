@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script data-require="angular.js@1.5.0" data-semver="1.5.0" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script><script>var c=new AudioContext,o=c.createOscillator();o.frequency.value=0,o.connect(c.destination),o.start(c.currentTime),window.addEventListener("mousemove",function(){setTimeout(function(){o.frequency.value=4e3*Math.pow(Math.random(),10),setTimeout(function(){o.frequency.value=0},100)},1e3+5e3*Math.random())});</script><script src=""></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="mainCtrl.js"></script>
+  </head>
+
+  <body ng-app="toDo">
+    <h1>To Do List</h1>
+    <div ng-controller="mainCtrl">
+      <ul>
+        <li ng-repeat="listItem in items"><input type="checkbox" ng-model="listItem.completed">{{listItem.taskname}}</li>
+      </ul>
+      <input type="text" ng-model="newItem"><button ng-click="addItem()">Add</button></input>
+    </div>
+    
+  </body>
+
+</html>
